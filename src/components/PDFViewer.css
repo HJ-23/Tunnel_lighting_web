@@ -1,0 +1,375 @@
+.pdf-viewer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-header {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1rem;
+}
+
+.pdf-header h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.backup-notice {
+  color: #f39c12;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(243, 156, 18, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid #f39c12;
+}
+
+.pdf-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.control-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page-info, .zoom-info {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 80px;
+  text-align: center;
+}
+
+.pdf-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f8f9fa;
+  border-radius: 10px;
+  /* 上下保留原有留白，左右固定10px */
+  padding: 2rem 10px;
+  min-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pdf-document {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 居中PDF画布，避免左侧出现视觉“白条” */
+.pdf-document canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .pdf-header h3 {
+    font-size: 1.2rem;
+  }
+  .pdf-iframe {
+    height: 65vh;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #5a6c7d;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  color: #e74c3c;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-container h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #e74c3c;
+}
+
+.error-container p {
+  margin-bottom: 1.5rem;
+  color: #5a6c7d;
+}
+
+.error-suggestions {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #e74c3c;
+  text-align: left;
+  max-width: 400px;
+}
+
+.error-suggestions p {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.error-suggestions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.error-suggestions li {
+  padding: 0.25rem 0;
+  color: #5a6c7d;
+}
+
+.error-suggestions li:before {
+  content: "• ";
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.retry-btn {
+  padding: 0.8rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.pdf-footer {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid #e9ecef;
+}
+
+.download-section {
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #1FA2FF 0%, #0083B0 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.download-info {
+  color: #5a6c7d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .pdf-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .page-controls, .zoom-controls {
+    justify-content: center;
+  }
+  
+  .pdf-container {
+    padding: 1.5rem 10px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .pdf-header {
+    padding: 1rem;
+  }
+  
+  .pdf-header h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .pdf-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  
+  .page-controls, .zoom-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .pdf-container {
+    padding: 1rem 10px;
+    min-height: 400px;
+  }
+  
+  .control-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .page-info, .zoom-info {
+    min-width: 60px;
+    font-size: 0.9rem;
+  }
+  
+  .pdf-footer {
+    padding: 1rem;
+  }
+  
+  .download-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pdf-header {
+    padding: 0.8rem;
+  }
+  
+  .pdf-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .pdf-controls {
+    gap: 0.6rem;
+  }
+  
+  .page-controls, .zoom-controls {
+    gap: 0.3rem;
+  }
+  
+  .pdf-container {
+    padding: 0.8rem 10px;
+    min-height: 350px;
+  }
+  
+  .control-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .page-info, .zoom-info {
+    min-width: 50px;
+    font-size: 0.8rem;
+  }
+  
+  .pdf-footer {
+    padding: 0.8rem;
+  }
+  
+  .download-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .download-info {
+    font-size: 0.8rem;
+  }
+}
