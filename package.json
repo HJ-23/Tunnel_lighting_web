@@ -10,11 +10,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "ajv": "^6.12.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-pdf": "^7.6.0",
-    "pdfjs-dist": "^3.11.174"
+    "react-scripts": "5.0.1"
   },
   "browserslist": {
     "production": [
@@ -27,5 +26,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "https://hj-23.github.io/Tunnel_lighting_web",
+  "engines": {
+  "node": ">=22.0.0"
   }
 }

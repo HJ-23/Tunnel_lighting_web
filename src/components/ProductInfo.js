@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProductInfo.css';
 
-const ProductInfo = ({ onOpenBrochure }) => {
+const ProductInfo = () => {
   const features = [
   { icon: '💡', title: '智慧照明', description: '隧道智能照明系统，节能环保，可按需调光与远程控制' },
   { icon: '🛡️', title: '安全监测', description: '覆盖隧道全域风险监测，包括渗漏水、裂缝、结构变形等' },
@@ -33,12 +33,6 @@ const ProductInfo = ({ onOpenBrochure }) => {
     setShowImage(false);
   };
 
-  // 点击按钮在应用内切换到“宣传册”页
-  const handleOpenBrochure = () => {
-    if (typeof onOpenBrochure === 'function') {
-      onOpenBrochure();
-    }
-  };
 
   return (
     <div className="product-info">
@@ -85,15 +79,6 @@ const ProductInfo = ({ onOpenBrochure }) => {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="cta-section">
-        <h3>立即体验</h3>
-        <p>查看完整的产品宣传册，了解更多技术细节和应用案例</p>
-        <button className="cta-button" onClick={handleOpenBrochure}>
-          <span>📄</span>
-          查看宣传册
-        </button>
       </div>
     </div>
   );

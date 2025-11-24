@@ -145,48 +145,6 @@
   font-size: 1.1rem;
 }
 
-.cta-section {
-  text-align: center;
-  padding: 3rem 2rem;
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-  background: linear-gradient(135deg, #1FA2FF 0%, #0083B0 100%);
-  border-radius: 15px;
-  color: white;
-}
-
-.cta-section h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.cta-section p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 25px;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.cta-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
 
 @media (max-width: 1024px) {
   .hero-section h2 {
@@ -247,22 +205,6 @@
     padding: 0.8rem;
   }
   
-  .cta-section {
-    padding: 2rem 1rem;
-  }
-  
-  .cta-section h3 {
-    font-size: 1.6rem;
-  }
-  
-  .cta-section p {
-    font-size: 1rem;
-  }
-  
-  .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -308,20 +250,4 @@
     padding: 0.6rem;
   }
   
-  .cta-section {
-    padding: 1.5rem 0.8rem;
-  }
-  
-  .cta-section h3 {
-    font-size: 1.4rem;
-  }
-  
-  .cta-section p {
-    font-size: 0.9rem;
-  }
-  
-  .cta-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-  }
 }
