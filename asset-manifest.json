@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Tunnel_lighting_web/static/css/main.641d205f.css",
+    "main.js": "/Tunnel_lighting_web/static/js/main.acb273d3.js",
+    "index.html": "/Tunnel_lighting_web/index.html",
+    "main.641d205f.css.map": "/Tunnel_lighting_web/static/css/main.641d205f.css.map",
+    "main.acb273d3.js.map": "/Tunnel_lighting_web/static/js/main.acb273d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.641d205f.css",
+    "static/js/main.acb273d3.js"
+  ]
+}
